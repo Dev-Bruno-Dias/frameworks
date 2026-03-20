@@ -8,7 +8,7 @@ export class CreateTodoDto {
   completedAt: Date;
   userId :string;
   createdAt: Date;
-  updateAt: Date;
+  updateAt: Date; //campo
 }
 enum TodoPriority{
     LOW = 'LOW',

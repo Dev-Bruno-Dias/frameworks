@@ -1,17 +1,17 @@
 import { Injectable, Logger } from "@nestjs/common";
-
+import { FindTodoByIDRepository } from "../repositoy";
 
 @Injectable()
-export class FindTodoByIDRepository{
+export class FindTodoByIDUseCase{
     constructor(
-        private readonly FindTodoByIDRepository: FindTodoByIDRepository,
+        private readonly findTodoByIDRepository: FindTodoByIDRepository,
         private readonly logger: Logger, 
     ) {}
 
     async execute(id: string){
         try{
             this.logger.log('Finding toDo by id...');
-            const todo = await this.FindTodoByIDRepository.findUnique(Where:{id},);
+            const todo = await this.findTodoByIDRepository.FindById(id);
             this.logger.log('ToDo found by id sucessfully');
             return todo;
         }

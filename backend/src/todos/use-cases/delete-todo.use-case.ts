@@ -1,19 +1,19 @@
 import { Injectable, Logger } from "@nestjs/common";
-import { CreateTodoRepository } from "../repositoy";
-import { CreateTodoDto } from "../dto/create-todo.dto";
+import { DeleteTodoRepository } from "../repositoy";
+
 
 
 @Injectable()
-export class DeleteTodoRepository{
+export class DeleteTodoUseCase{
     constructor(
-        private readonly DeleteTodoRepository: DeleteTodoRepository,
+        private readonly deleteTodoRepository: DeleteTodoRepository,
         private readonly logger: Logger, 
     ) {}
 
     async execute(id: string){
         try{
             this.logger.log('Deleting toDo...');
-            const todo = await this.DeleteTodoRepository.delete(where: {id});
+            const todo = await this.deleteTodoRepository.delete(id);
             this.logger.log('ToDo Deleted sucessfully');
             return todo;
         }

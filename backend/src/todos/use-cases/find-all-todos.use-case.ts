@@ -1,20 +1,21 @@
 import { Injectable, Logger } from "@nestjs/common";
-import { CreateTodoRepository } from "../repositoy";
-import { CreateTodoDto } from "../dto/create-todo.dto";
+import { FindAlltodoRepository } from "../repositoy";
+
 
 
 @Injectable()
-export class FindAlltodoRepository{
+export class FindAlltodoUseCase{
     constructor(
-        private readonly FindAlltodoRepository: FindAlltodoRepository,
+        private readonly findAlltodoRepository: FindAlltodoRepository, //primeira letra minuscula
         private readonly logger: Logger, 
     ) {}
 
     async execute(){
         try{
             this.logger.log('Finding All toDo...');
-            const todo = await this.FindAlltodoRepository.findMany();
-            this.logger.log('ToDo found sucessfully');
+            //const todo = await this.FindAlltodoRepository.findMany();
+            const todo = await this.findAlltodoRepository.FindAll();// dentro do meu aquivo find all no repository tem a função que puxa as informações, e por conta disso eu só chamo a função
+            this.logger.log('ToDo found sucessfully');              //  por conta disso eu só chamo a função e por conta disso eu só chamo a função
             return todo;
         }
         catch(error) {
