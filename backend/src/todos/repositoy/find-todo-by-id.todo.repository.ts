@@ -4,7 +4,7 @@ import { PrismaService } from "src/shared/databases/prisma.database";
 
 
 @Injectable()
-export class FindTodoByID {
+export class FindTodoByIDRepository {
     constructor(private readonly prisma: PrismaService){}
 
     async FindById(id: string){ 

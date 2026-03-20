@@ -3,7 +3,7 @@ import { PrismaService } from "src/shared/databases/prisma.database";
 import { UpdateTodoDto } from "../dto/update-todo.dto";
 
 @Injectable()
-export class UpdateTodoByID {
+export class UpdateTodoByIDtodoRepository {
     constructor(private readonly prisma: PrismaService){}
 
     async update(id: string, data: UpdateTodoDto){  
