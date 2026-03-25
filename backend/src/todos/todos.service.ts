@@ -1,15 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
+import {CreateTodoUseCase,DeleteTodoUseCase,FindAlltodoUseCase,FindTodoByIDUseCase,UpdateTodoByIDUseCase } from './use-cases/index';
 
 @Injectable()
 export class TodosService {
+  constructor (
+   private readonly createTodoUseCase: CreateTodoUseCase,
+   private readonly deleteTodoUseCase: DeleteTodoUseCase,
+   private readonly findAllTodoUseCase:FindAlltodoUseCase,
+   private readonly findByIdTodoUseCase:FindTodoByIDUseCase,
+   private readonly updateTodoUseCase:UpdateTodoByIDUseCase,
+  ){}
+
   create(createTodoDto: CreateTodoDto) {
-    return 'This action adds a new todo';
+    return createTodoUseCase;
   }
 
   findAll() {
-    return `This action returns all todos`;
+    return ;
   }
 
   findOne(id: number) {
