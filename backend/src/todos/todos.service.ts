@@ -14,22 +14,22 @@ export class TodosService {
   ){}
 
   create(createTodoDto: CreateTodoDto) {
-    return createTodoUseCase;
+    return this.createTodoUseCase.execute(createTodoDto);
   }
 
   findAll() {
-    return ;
+    return this.findAllTodoUseCase.execute();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} todo`;
+  findById(id: string) {
+    return this.findByIdTodoUseCase.execute(id);
   }
 
-  update(id: number, updateTodoDto: UpdateTodoDto) {
-    return `This action updates a #${id} todo`;
+  update(id: string, updateTodoDto: UpdateTodoDto) {
+    return this.updateTodoUseCase.execute(id, updateTodoDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} todo`;
+  delete(id: string) {
+    return this.deleteTodoUseCase.execute(id);
   }
 }
