@@ -5,7 +5,7 @@ type CreateUserParams = {
     name?: string;
     email: string;
     passwordHash:string;
-};
+}; 
 
 
 
