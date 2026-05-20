@@ -5,7 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { loginDto } from "../dto/login.dto";
 
 @Injectable()
- export class RegisterUseCase {
+ export class LoginUseCase {
     constructor(
         private readonly findUserByEmailRepository: FindUserByEmailRepository,
         private readonly jwtService: JwtService,
